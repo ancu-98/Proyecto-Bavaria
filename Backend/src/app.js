@@ -45,5 +45,5 @@ app.use('/api/v1/users', userRouter);
 app.use('/api/v1/users', authRouter);
 
 app.listen(config.api.port, () => {
-    console.log(`Sever started on ${config.api.host}`)
+    console.log(`Sever started on port: ${config.api.host}`)
 });
