@@ -1,5 +1,12 @@
+const router = require('express').Router()
+
 const passportJWT = require('../middlewares/auth.middleware');
 const roleMiddleware = require('../middlewares/role.middleware');
+const userServices = require('./users.services');
+
+router.route('/')
+    .get(userServices.getAllUsers)
+    .post(userServices.postUser)
 
 router.route('/me')
     .get(passportJWT.authenticate('jwt', {session: false}), userServices.getMyUser)
